@@ -38,9 +38,31 @@ const mostBlogs = (blogs) => {
   return authorAndAmountOfBlogs
 }
 
+// Most Likes
+const mostLikes = (blogs) => {
+  const array = []
+  const authorObject = { author: '', likes: 0 }
+  const result = _.groupBy(blogs, 'author')
+  _.forEach(result, function (value, key) {
+    const likeArrays = value.map((el) => el.likes)
+    array.push({
+      author: key,
+      likes: likeArrays.reduce((acc, curr) => acc + curr, 0),
+    })
+  })
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].likes > authorObject.likes) {
+      authorObject.author = array[i].author
+      authorObject.likes = array[i].likes
+    }
+  }
+  return authorObject
+}
+
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
   mostBlogs,
+  mostLikes,
 }
