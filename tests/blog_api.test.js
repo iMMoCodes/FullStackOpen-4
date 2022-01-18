@@ -62,6 +62,15 @@ test('If no likes given, set likes to 0', async () => {
   expect(response.body.map((blog) => blog.likes)).toBeDefined()
 })
 
+test('blog has title and url', async () => {
+  const newBlog = {
+    author: 'testAuthor',
+    url: 'testurl@example.com',
+  }
+
+  await api.post('/api/blogs').send(newBlog).expect(400)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })

@@ -8,10 +8,14 @@ const blogsRouter = require('./controllers/blogs')
 mongoose
   .connect(config.MONGODB_URI)
   .then(() => {
-    console.log('connected to MongoDB')
+    if (process.env.NODE_ENV !== 'test') {
+      console.log('connected to MongoDB')
+    }
   })
   .catch((error) => {
-    console.error('error connecting to MongoDB:', error.message)
+    if (process.env.NODE_ENV !== 'test') {
+      console.error('error connecting to MongoDB:', error.message)
+    }
   })
 
 app.use(cors())
