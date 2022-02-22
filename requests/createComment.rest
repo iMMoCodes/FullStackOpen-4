@@ -1,0 +1,7 @@
+POST http://localhost:3003/api/blogs/62142a48ae03252383925d34/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwiaWQiOiI2MjEyYTQ5ODFkZjYxNDY0NDk5MTI5MzMiLCJpYXQiOjE2NDU1NjE1ODV9.tbzX-jr-rSfmLGosqgzUpCBgBK40SzS1j0HUyBnGTBQ
+
+{
+    "comment": "testComment2"
+}
